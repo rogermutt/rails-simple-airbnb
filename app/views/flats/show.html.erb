@@ -1,0 +1,30 @@
+<h1>Flats#show</h1>
+<h1 class="text-center">Flats#edit</h1>
+    <div class="flat-card ">
+        <div class="col-md-12">
+          <div class="flat-content" style="padding: 20px; margin: 20px;">
+            <p class="flat-name"><%=@flat.name%></p>
+            <p class="flat-address">Address:<%=@flat.address%></p>
+            <p class="flat-description">Description:<%=@flat.description%></p>
+
+            <% t_full = @flat.price_per_night.to_s.first(1).to_i %>
+            <% t_empty = 10 - t_full %>
+
+            <p class="flat-price">Price:
+              <% t_full.times { %> <span style="color: green; font-weight: bold;">$</span> <% } %>
+              <% t_empty.times { %> <span style="color: grey; font-weight: bold;">$</span><% } %>
+            </p>
+
+            <% t = @flat.number_of_guests %>
+            <p class="flat-guests">Guests:
+                <% t.times do %>
+                  <i class="fa fa-user"></i>
+                <% end %>
+            </p>
+
+          </div>
+        </div>
+    </div>
+
+<%= link_to 'Back to flats', flats_path %>
+
